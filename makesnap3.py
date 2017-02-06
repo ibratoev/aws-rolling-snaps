@@ -202,9 +202,10 @@ def main(period, config_file='config.json'):
     # Set profile name only if it's explicitly defined if config file
     # otherwise it messes with the boto's order of credentials search
     # (environment is not checked)
-    if config.get('aws_profile_name'):
-        boto3.setup_default_session(profile_name=(
-            config['aws_profile_name'] or 'default'))
+    # [ibratoev] COMMENTED OUT BECAUSE NOT NEEDED AND CAUSING EXCEPTIONS!
+    # if config.get('aws_profile_name'):
+    #     boto3.setup_default_session(profile_name=(
+    #         config['aws_profile_name'] or 'default'))
 
     stats = {
         'total_vols': 0,
